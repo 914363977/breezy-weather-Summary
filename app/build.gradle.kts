@@ -32,9 +32,7 @@ configure<ApplicationExtension> {
         buildConfigField("boolean", "IS_BREEZY", "${Config.isBreezy}")
 
         multiDexEnabled = true
-        ndk {
-            abiFilters += supportedAbi
-        }
+
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
@@ -45,8 +43,8 @@ configure<ApplicationExtension> {
         abi {
             isEnable = true
             reset()
-            include(*supportedAbi.toTypedArray())
-            isUniversalApk = true
+            include("arm64-v8a")
+            isUniversalApk = false
         }
     }
 
